@@ -1,0 +1,1 @@
+"Don't know why git won't let me to add this empty folder as it is required for catkin_make to work"

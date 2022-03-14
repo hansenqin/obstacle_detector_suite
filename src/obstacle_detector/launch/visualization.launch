@@ -1,0 +1,8 @@
+<!-- Visualization of obstacle detector -->
+<launch>
+
+  <node name="rviz" pkg="rviz" type="rviz" output="screen" args="-d $(find obstacle_detector)/resources/obstacle_detector.rviz"/>
+
+</launch>
+<!-- -->
+

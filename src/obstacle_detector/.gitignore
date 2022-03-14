@@ -1,0 +1,16 @@
+CMakeLists.txt.user
+*~
+obstacle_detector_gui_automoc.cpp
+moc_*.cpp
+devel
+build
+gtest
+catkin
+catkin_generated
+atomic_configure
+CMakeFiles
+CMakeCache.txt
+cmake
+cmake_install.cmake
+Makefile
+CTest*
