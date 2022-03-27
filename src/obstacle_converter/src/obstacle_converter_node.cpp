@@ -29,11 +29,14 @@ void obstaclesCallback(const obstacle_detector::Obstacles& obs) {
     pol.polygons.clear();
     zono.zonotopes.clear(); 
     int seg_size = obs.segments.size();
+    //std::cout<<seg_size<<std::endl;
     for(int i = 0; i<seg_size; i++) {
       first_points.push_back(obs.segments[i].first_point);
       last_points.push_back(obs.segments[i].last_point);
     }
-
+    
+    
+    
     int cir_size = obs.circles.size();
     for(int i = 0; i<cir_size; i++) {
       centers.push_back(obs.circles[i].center);
@@ -51,6 +54,7 @@ int main(int argc, char** argv) {
     ros::Rate loop_rate(50);
     while(ros::ok()) {
       if (!(first_points.empty())) {
+        //std::cout<<first_points.size()<<std::endl;
         for(int i = 0; i<first_points.size(); i++) {
 	  geometry_msgs::Point c;
           geometry_msgs::Point generator_1;
@@ -69,6 +73,7 @@ int main(int argc, char** argv) {
           zono.zonotopes.push_back(z);
         }
       }
+      std::cout<<centers.empty()<<std::endl;
       if (!(centers.empty())) {
         for(int j = 0; j<centers.size(); j++) {
           geometry_msgs::PolygonStamped g;
@@ -106,6 +111,7 @@ int main(int argc, char** argv) {
           g.polygon.points.push_back(p6);
           g.header = header_all;
           pol.polygons.push_back(g);
+          std::cout<<pol.polygons.size()<<std::endl;
           g1.x = r;
           g1.y = r/sqrt(3);
           g2.x = r;
